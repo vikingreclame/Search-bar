@@ -1,0 +1,119 @@
+.wwas-search {
+  position: relative;
+  width: 100%;
+  --wwas-border-radius: var(--e-global-border-radius, 12px);
+  --wwas-bg: var(--e-global-color-9, #ffffff);
+  --wwas-text: var(--e-global-color-text, #111111);
+  --wwas-muted: color-mix(in srgb, var(--wwas-text) 50%, transparent);
+  --wwas-border: color-mix(in srgb, var(--wwas-text) 14%, transparent);
+  --wwas-shadow: 0 10px 35px color-mix(in srgb, var(--wwas-text) 12%, transparent);
+  --wwas-accent: var(--e-global-color-primary, currentColor);
+}
+
+.wwas-search__input {
+  width: 100%;
+  border: 1px solid var(--wwas-border);
+  border-radius: var(--wwas-border-radius);
+  padding: 0.9rem 1rem;
+  color: var(--wwas-text);
+  background: var(--wwas-bg);
+  font: inherit;
+}
+
+.wwas-search__input:focus {
+  outline: 2px solid color-mix(in srgb, var(--wwas-accent) 35%, transparent);
+  outline-offset: 1px;
+}
+
+.wwas-search__results {
+  position: absolute;
+  z-index: 50;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  right: 0;
+  background: var(--wwas-bg);
+  border: 1px solid var(--wwas-border);
+  border-radius: calc(var(--wwas-border-radius) - 2px);
+  box-shadow: var(--wwas-shadow);
+  max-height: min(70vh, 560px);
+  overflow: auto;
+}
+
+.wwas-search__status {
+  font-size: 0.85rem;
+  color: var(--wwas-muted);
+  padding: 0.8rem 1rem;
+}
+
+.wwas-search__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wwas-search__item + .wwas-search__item {
+  border-top: 1px solid color-mix(in srgb, var(--wwas-border) 70%, transparent);
+}
+
+.wwas-search__link {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.wwas-search__link:hover,
+.wwas-search__link:focus {
+  background: color-mix(in srgb, var(--wwas-accent) 8%, transparent);
+}
+
+.wwas-search__thumb {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--wwas-bg) 80%, var(--wwas-text));
+  flex-shrink: 0;
+}
+
+.wwas-search__thumb--placeholder {
+  display: inline-block;
+}
+
+.wwas-search__meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.wwas-search__title {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.wwas-search__sku {
+  color: var(--wwas-muted);
+  margin-top: 0.15rem;
+}
+
+.wwas-search__price {
+  margin-top: 0.35rem;
+  color: var(--wwas-accent);
+  font-weight: 600;
+}
+
+.wwas-search__all {
+  display: block;
+  border-top: 1px solid var(--wwas-border);
+  padding: 0.8rem 1rem;
+  color: var(--wwas-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.wwas-search__all:hover,
+.wwas-search__all:focus {
+  text-decoration: underline;
+}
