@@ -1,63 +1,65 @@
 # Workwear AJAX Search voor WordPress + WooCommerce + Elementor
 
-Deze repository bevat een complete plugin voor een **realtime AJAX zoekbalk** die WooCommerce-producten toont terwijl de bezoeker typt.
+Deze repository is nu direct uploadbaar als WordPress-plugin (ZIP), zodat je **geen fout “geen geldige plugin”** meer krijgt.
+
+## Waarom die fout ontstond
+WordPress accepteert een plugin-zip alleen als in de **hoofdmap van de zip** een pluginbestand staat met geldige plugin-header. Deze is nu toegevoegd als:
+
+- `workwear-ajax-search.php` (in de root)
 
 ## Wat je krijgt
-- Live zoekresultaten op basis van producttitel/zoekterm.
-- Werkt met WooCommerce producten (alleen `publish` + standaard op voorraad).
-- In te voegen via Elementor met een shortcode.
-- CSS is bewust "theme-first" gemaakt met CSS variabelen zodat de stijl van je website automatisch wordt overgenomen.
+- Realtime AJAX zoekresultaten op WooCommerce producten terwijl de bezoeker typt.
+- Werkt voor bezoekers en ingelogde gebruikers.
+- In te voegen in Elementor via shortcode.
+- Styling neemt automatisch huisstijl over via Elementor/thema CSS-variabelen.
 
-## Installatie
-1. Upload de map `workwear-ajax-search` naar `wp-content/plugins/`.
-2. Activeer de plugin in WordPress (`Plugins > Geïnstalleerde plugins`).
-3. Zorg dat WooCommerce actief is.
+## Installatie (2 manieren)
+
+### Manier A — via WordPress ZIP upload (aanbevolen)
+1. Maak van deze projectmap een zipbestand.
+2. Ga in WordPress naar **Plugins → Nieuwe plugin → Plugin uploaden**.
+3. Upload de zip.
+4. Activeer **Workwear AJAX Product Search**.
+5. Zorg dat WooCommerce actief is.
+
+### Manier B — via FTP
+1. Upload de volledige map naar `wp-content/plugins/`.
+2. Controleer dat dit bestand bestaat:
+   - `wp-content/plugins/<mapnaam>/workwear-ajax-search.php`
+3. Activeer de plugin in WordPress.
 
 ## Elementor plaatsing
-Je hebt twee makkelijke opties:
 
-### Optie A: Shortcode widget (aanbevolen)
+### Optie A: Shortcode widget
 1. Open je pagina/template in Elementor.
-2. Sleep de **Shortcode** widget naar de gewenste plek (header, hero, shoppagina, etc).
-3. Plaats deze shortcode:
+2. Sleep de **Shortcode** widget naar de juiste positie.
+3. Plaats:
 
 ```text
 [workwear_ajax_search]
 ```
 
-### Optie B: Aangepaste instellingen
-Gebruik shortcode-attributen:
+### Optie B: Met instellingen
 
 ```text
 [workwear_ajax_search placeholder="Zoek bedrijfskleding..." max_results="10" show_price="yes" show_image="yes"]
 ```
 
-- `placeholder`: tekst in het zoekveld.
-- `max_results`: aantal resultaten (1-20).
-- `show_price`: `yes/no`.
-- `show_image`: `yes/no`.
+- `placeholder`: tekst in het zoekveld
+- `max_results`: 1-20
+- `show_price`: `yes/no`
+- `show_image`: `yes/no`
 
-## Styling / huisstijl overnemen
-De zoekbalk gebruikt Elementor/thema variabelen zoals:
+## Styling / huisstijl
+De CSS gebruikt o.a.:
 - `--e-global-color-primary`
 - `--e-global-color-text`
 - `--e-global-border-radius`
 
-Daardoor neemt de component direct je huisstijl over. Wil je extra fijnafstemming doen, zet dan Custom CSS op je pagina of in je child theme, bijvoorbeeld:
+Daarmee sluit de zoekbalk automatisch aan op je bestaande design.
 
-```css
-.wwas-search {
-  --wwas-border-radius: 999px;
-}
-```
-
-## Aanpak voor bedrijfskleding-webshops
-Voor betere resultaten bij bedrijfskleding kun je:
-1. Producttitels verrijken met termen als beroep/functie ("Horeca", "Bouw", "Logistiek").
-2. SKU's consistent invullen voor snelle herkenning.
-3. Categorieën logisch opbouwen (werkbroek, werkjas, veiligheidsschoenen).
-
-## Belangrijk
-- Deze plugin gebruikt `admin-ajax.php` met nonce-validatie.
-- Resultaten sluiten producten met `exclude-from-search` uit.
-- In de code is eenvoudig uit te breiden naar categorie/tags/SKU-zoeking op maat.
+## Troubleshooting
+Als je nog steeds “geen geldige plugin” ziet:
+1. Open de zip lokaal en check of `workwear-ajax-search.php` direct in de root staat (niet 2 mappen diep).
+2. Verwijder oude foutieve versies van dezelfde pluginmap op de server.
+3. Upload opnieuw.

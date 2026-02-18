@@ -4,7 +4,6 @@
  * Description: Realtime AJAX zoekbalk voor WooCommerce producten, geschikt voor Elementor via shortcode.
  * Version: 1.0.0
  * Author: Codex Assistant
- * Requires Plugins: woocommerce
  * Text Domain: workwear-ajax-search
  */
 
